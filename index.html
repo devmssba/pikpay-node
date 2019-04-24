@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3D Secure Verification</title>
+    <script language="Javascript">
+       function OnLoadEvent() { document.form.submit(); }
+    </script>
+  </head>
+  <body OnLoad="OnLoadEvent();">
+    Invoking 3-D secure form, please wait ...
+    <form name="form" action="https://ipgtest.pikpay.ba/acs/authenticated" method="post">
+      <input type="hidden" name="PaReq" value="fake authenticated pareq +=">
+      <input type="hidden" name="TermUrl" value="http://localhost:3000/payment/auth">
+      <input type="input" name="MD" value="1f9ec726ce2dbe72c19c95be45e48293eae8973b">
+      <noscript>
+        <p>Please click</p><input id="to-asc-button" type="submit">
+      </noscript>
+    </form>
+    </body>
+</html>
