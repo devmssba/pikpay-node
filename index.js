@@ -227,13 +227,14 @@ async function asyncCreateTransaction(orginalTransaction, url) {
         // console.log(result1);
         if (response.status === 201) {
             const { transaction, 'secure-message': secure } = result1;
-
+            const sendResult = transactionResponseJSONPretty(transaction);
             if (typeof transaction !== "undefined") {
                 if (typeof responseCodes[transaction["response-code"]["_text"]] !== "undefined") {
+                    // This can be one line 
                     if (responseCodes[transaction["response-code"]["_text"]]['msg'] === "Approved") {
-                        return { status: true, errors: null, msg: "Success", responseData: response.data, code: 1 };
+                        return { status: true, errors: null, msg: "Success", responseData: response.data, code: 1 , data: sendResult};
                     } else {
-                        return { status: false, errors: [responseCodes[transaction["response-code"]["_text"]]['msg']], msg: "Failed", responseData: response.data, code: 0 };
+                        return { status: false, errors: [responseCodes[transaction["response-code"]["_text"]]['msg']], msg: "Failed", responseData: response.data, code: 0 , data: sendResult};
                     }
                 }
             }
