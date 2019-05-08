@@ -287,11 +287,16 @@ async function asyncCreateTransaction(orginalTransaction, url) {
     }
 }
 
+function getCodeInfo(code){
+    return typeof responseCodes[code] !== "undefined" ? responseCodes[code] : { msg : "Code not found"};
+}
+
 module.exports = {
     generateDigest,
     makeid,
     asyncCreateTransaction,
-    asyncFinish3DTransaction
+    asyncFinish3DTransaction,
+    getCodeInfo
 }
 // createTransaction(validNon3DSecured);
 // (createTransaction(validNon3DSecured));
