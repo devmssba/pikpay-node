@@ -1,6 +1,6 @@
 {
   "name": "@mss.ba/pikpay-node",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NodeJS wrapper for PikPay payment gateway",
   "main": "index.js",
   "scripts": {
